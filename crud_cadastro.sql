@@ -24,5 +24,13 @@ INSERT INTO cadastro.pessoas (nome, rg, cpf, limite) VALUES ("Maria", "3322114",
 ALTER TABLE pessoas MODIFY COLUMN rg CHAR(7) UNIQUE;
 ALTER TABLE pessoas MODIFY COLUMN limite INT(10);
 
--- Consultar tabela criada com filtro (sem o rg e o limite);
-SELECT id, nome, cpf FROM pessoas;
+-- Atualizando as colunas sobrenome de Jian, Benjamin e Leandro;
+UPDATE pessoas SET sobrenome = "Ferreira" WHERE nome = "Jian Ferreira";
+UPDATE pessoas SET sobrenome = "Mendes" WHERE nome = "Benjamin";
+UPDATE pessoas SET sobrenome = "Borges" WHERE nome = "Leandro";
+
+-- Deletando registros que tem seu limite MAIOR que 50.000;
+DELETE FROM pessoas WHERE limite > 50000;
+
+-- Consultar tabela;;
+SELECT * FROM pessoas;
